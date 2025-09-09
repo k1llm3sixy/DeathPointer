@@ -1,4 +1,4 @@
-![image](https://imgur.com/a/jkN1piN)
+![image](https://i.imgur.com/necBZiZ.png)
 # ENG
 # DeathPointer
 
