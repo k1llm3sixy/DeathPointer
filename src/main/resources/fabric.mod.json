@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "deathpointer",
+  "version": "${version}",
+  "name": "DeathPointer",
+  "description": "Show your death position",
+  "authors": ["k1llm3sixy"],
+  "contact": {
+    "email": "k1llm3sixy@gmail.com",
+    "sources": "https://github.com/k1llm3sixy/DeathPointer",
+    "issues": "https://github.com/k1llm3sixy/DeathPointer/issues"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/deathpointer/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.k1llm3sixy.deathpointer.DeathPointerClient"
+    ]
+  },
+  "mixins": [
+    "deathpointer.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": ">=1.20"
+  }
+}
