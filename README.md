@@ -1,6 +1,5 @@
-![image](https://i.imgur.com/necBZiZ.png)
+![image](https://i.imgur.com/SYJ7p4J.png)
 # ENG
-# DeathPointer
 
 A Minecraft mod that displays the player's death coordinates on the death screen and provides a button to copy these coordinates to the clipboard
 
@@ -11,7 +10,6 @@ A Minecraft mod that displays the player's death coordinates on the death screen
 - Helps players quickly find and return to their death spots
 
 # RUS
-# DeathPointer
 
 Мод, который отображает координаты места смерти игрока на экране смерти и позволяет скопировать эти координаты нажатием кнопки
 
