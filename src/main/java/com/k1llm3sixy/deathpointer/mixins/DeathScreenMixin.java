@@ -4,6 +4,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.DeathScreen;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.tooltip.Tooltip;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.text.Text;
@@ -21,19 +22,21 @@ public class DeathScreenMixin extends Screen {
     @Unique ClientPlayerEntity player = mc.player;
 
     @Inject(method = "render", at = @At("HEAD"))
-    private void addPosText(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
+    private void addPositionText(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
         int[] pos = getPlayerPos();
         String posText = String.format("§cX: §e%s §cY: §e%s §cZ: §e%s", pos[0], pos[1], pos[2]);
         context.drawCenteredTextWithShadow(this.textRenderer, posText, this.width / 2, 120, Colors.WHITE);
     }
 
     @Inject(method = "init", at = @At("HEAD"))
-    private void addCopyBtn(CallbackInfo ci) {
-        this.addDrawableChild(ButtonWidget.builder(Text.translatable("position.copy"), (button) -> {
+    private void addCopyButton(CallbackInfo ci) {
+        this.addDrawableChild(ButtonWidget.builder(Text.literal("\uD83D\uDCCB"), (button) -> {
             int[] pos = getPlayerPos();
             mc.keyboard.setClipboard(pos[0] + " " + pos[1] + " " + pos[2]);
             button.active = false;
-        }).dimensions(this.width / 2 + 100, this.height / 4 + 72, 80, 20).build());
+        }).tooltip(Tooltip.of(Text.translatable("tooltip.copy_pos")))
+                .dimensions(this.width / 2 + 100, this.height / 4 + 72, 20, 20)
+                .build());
     }
 
     @Unique
